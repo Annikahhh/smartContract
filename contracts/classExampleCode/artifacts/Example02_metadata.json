@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBlance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/classExampleCode/example02.sol": "Example02"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/classExampleCode/example02.sol": {
+			"keccak256": "0xfe1c7ac0fcd0e3408ea29913fb9b1336e6d6dce83bc81af929c47fe67eca4876",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://fea848281f48978321801a593f1e4df7df39ed12aa9a153ee9215213a5ae3c9b",
+				"dweb:/ipfs/QmfLaqjsvnpjKwnQB7hRt75MgZEvMvihyrbJyhfnxG3VKm"
+			]
+		}
+	},
+	"version": 1
+}
