@@ -9,30 +9,30 @@ contract Example03 {
         bool exists;
     }
 
-    mapping(address => vault) public vaults;
+    mapping(address => vault) private vaults;
 
     function deposit(uint256 password) public payable {
         uint256 hashed = uint256(sha256(abi.encode(password)));
-        if(!vault[msg.sender].exists){
-            vault[msg.sender] = vault({
+        if(!vaults[msg.sender].exists){
+            vaults[msg.sender] = vault({
                 balance: msg.value,
                 passwordHash: hashed,
                 exists: true
             });
         }
         else{
-            if((vault[msg.sender].passwordHash == hashed)){
-                vault[msg.sender].balance += msg.value;
+            if((vaults[msg.sender].passwordHash == hashed)){
+                vaults[msg.sender].balance += msg.value;
             }
         }
     }
 
     function withdraw(uint256 password , uint256 amount) public {
         uint256 hashed = uint256(sha256(abi.encode(password)));
-        if(vault[msg.sender].passwordHash == hashed)
+        if(vaults[msg.sender].passwordHash == hashed)
         {
-            if(vault[msg.sender].balance >= amount){
-                vault[msg.sender].balance -= amount;
+            if(vaults[msg.sender].balance >= amount){
+                vaults[msg.sender].balance -= amount;
                 payable(msg.sender).transfer(amount);
             }
         }
@@ -40,11 +40,11 @@ contract Example03 {
 
     function getBlance(uint256 password) public  view returns (uint256) {
         uint256 hashed = uint256(sha256(abi.encode(password)));
-        if(vault[msg.sender].passwordHash == hashed)
+        if(vaults[msg.sender].passwordHash == hashed)
         {
-            return vault[msg.sender].balance;   
+            return vaults[msg.sender].balance;   
         }
-        return -1;
+        return 0;
     }
 
     function hash(uint256 input) public pure returns (uint256) {
